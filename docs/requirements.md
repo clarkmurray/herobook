@@ -8,8 +8,8 @@
 
 
 # MVP
-[ ] 1. index.php file should display all the superheroes in your database
-[ ] 2. Each superhero listing should contain:
+[x] 1. index.php file should display all the superheroes in your database
+[x] 2. Each superhero listing should contain:
 	- Name
 	- Thumbnail image of their profile picture
 	- About Me (this is a field in the hero table)
