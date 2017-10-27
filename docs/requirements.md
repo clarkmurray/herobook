@@ -24,6 +24,6 @@
 	- List of abilities
 	- List of allies
 	- List of enemies
-[ ] 2. Profile pages should link back to the roster on index.php 
+[x] 2. Profile pages should link back to the roster on index.php 
 [ ] 3. Each ally and enemy's name should link to their profile 
 

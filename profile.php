@@ -17,8 +17,17 @@
 
 	function getProfile($id) {
       $sql = "select * from heroes where id=" . $id;
+
       $request = pg_query(getDb(), $sql);
       return pg_fetch_assoc($request);
+    }
+
+    function getAbilities($hero_id) {
+    	$sql = "SELECT ability FROM abilities 
+				RIGHT JOIN hero_abilities ON abilities.id=hero_abilities.abilities_id
+				WHERE hero_id=" . $hero_id;
+    	$request = pg_query(getDb(), $sql);
+      	return pg_fetch_all($request);
     }
 
     $profile = getProfile($id);
@@ -37,6 +46,13 @@
 		echo "<p><span class='profInfo'>Alias: </span>" . $profile['alias'] . "</p>";
 		echo "<p><span class='profInfo'>First Appearance: </span>" . $profile['first_appearance'] . "</p>";
 		echo "<p><span class='profInfo'>About Me: </span>" . $profile['about_me'] . "</p>";
+		echo "<ul>";
+
+		foreach (getAbilities($id) as $ability) {
+			echo "<li>" . $ability['ability'] . "</li>";
+		}
+
+		echo "</ul>";
 		echo "</div>";
 
 		echo "<div class='col bio'>";
