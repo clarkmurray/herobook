@@ -1,10 +1,10 @@
 # Requirements
 
 [x] 1. Create a public repo in personal Github account.
-[ ] 2. Create PHP and markdown files and add them to the project
-[ ] 3. Create a local database (for development)
-[ ] 4. Push your code to Github
-[ ] 5. Deploy your application and database to Heroku
+[x] 2. Create PHP and markdown files and add them to the project
+[x] 3. Create a local database (for development)
+[x] 4. Push your code to Github
+[x] 5. Deploy your application and database to Heroku
 
 
 # MVP
@@ -16,14 +16,12 @@
 
 ## Stretch Goal
 
-[ ] 1. Create an individual profile for each hero that can be accessed from the index.php menu. Profiles should include:
+[x] 1. Create an individual profile for each hero that can be accessed from the index.php menu. Profiles should include:
 	- Name
 	- Large profile picture
 	- About Me
 	- Biography
 	- List of abilities
-	- List of allies
-	- List of enemies
 [x] 2. Profile pages should link back to the roster on index.php 
 [ ] 3. Each ally and enemy's name should link to their profile 
 

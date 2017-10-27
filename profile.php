@@ -43,8 +43,9 @@
 
 		echo "<div class='row'>";
 
-		echo "<div class='col'>";
-		echo "<img height='400px' width='400px' src='" . $profile['image_url'] . "'>";
+		echo "<div class='col-5'>";
+		echo "<img height='400px' width='100%' src='" . $profile['image_url'] . "'>";
+		echo "<div class='container profileBox'>";
 		echo "<h1>" . $profile['name'] . "</h1>";
 		echo "<p><span class='profInfo'>Alias: </span>" . $profile['alias'] . "</p>";
 		echo "<p><span class='profInfo'>First Appearance: </span>" . $profile['first_appearance'] . "</p>";
@@ -58,13 +59,16 @@
 
 		echo "</ul>";
 		echo "</div>";
+		echo "</div>";
 
-		echo "<div class='col bio'>";
-		echo "<h1>Biography</h1>";
+		echo "<div class='col-7 bio'>";
+		echo "<div class='container bioBox'>";
+		echo "<h1 class='text-center'>Biography</h1>";
 		echo "<br />";
 		echo "<p>" . $profile['biography'] . "</p>";
 		echo "</div>";
 
+		echo "</div>";
 		echo "</div>"; 
 
 	?>

@@ -29,7 +29,7 @@
 
 	<div class="container-fluid">
 
-	<table class="table">
+	<table class="table table-hover">
 		<tr>
 			<th></th>
 			<th>Name</th>

@@ -13,6 +13,10 @@ body {
 	background-color: #f7f7f7;
 }
 
+table {
+	background-color: white;
+}
+
 .profInfo {
 	font-weight: bold;
 }
@@ -20,4 +24,16 @@ body {
 .container-fluid {
 	margin-left: 50px;
 	margin-right: 50px;
+}
+
+.profileBox {
+	margin-top: 20px;
+	background-color: white;
+	padding: 20px 20px 20px 10px;
+}
+
+.bioBox {
+	background-color: white;
+	width: 100%;
+	padding: 20px;
 }
