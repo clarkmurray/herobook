@@ -1,15 +1,25 @@
 <?php
 
-	echo "<header class='row'>";
 
-	echo "<div class='col-xs-4'>";
-		echo "<img src='./assets/logo.png' />";
+	echo "<header>";
+
+	echo "<div class='container-fluid'>";
+
+	echo "<div class='row align-items-center'>";
+
+	echo "<div class='col logoCol'>";
+		echo "<a href='index.php'><img src='./assets/logo.png' /></a>";
 	echo "</div>";
-	echo "<div class='col-xs-4'>";
+
+	echo "<div class='col siteName'>";
 		echo "<h1 class='text-center'>Bat-Net</h1>";
 	echo "</div>";
-	echo "<div class='col-xs-4'>";
-		echo "<a class='text-right' href='index.php'>home</a>";
+
+	echo "<div class='col'>";
+	echo "</div>";
+
+	echo "</div>";
+
 	echo "</div>";
 
 	echo "</header>";

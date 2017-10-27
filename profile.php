@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+	<title><?php $profile['name']?></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
 	<?php 
 
 	include('header.php');
@@ -18,17 +25,13 @@
 
 	?>
 
-	<title><?php $profile['name']?></title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-	<link rel="stylesheet" href="style.css">
-</head>
-<body class="container">
+	<div class="container-fluid">
 
 	<?php 
 
 		echo "<div class='row'>";
 
-		echo "<div class='col-xs-6'>";
+		echo "<div class='col'>";
 		echo "<img height='400px' width='400px' src='" . $profile['image_url'] . "'>";
 		echo "<h1>" . $profile['name'] . "</h1>";
 		echo "<p><span class='profInfo'>Alias: </span>" . $profile['alias'] . "</p>";
@@ -36,8 +39,9 @@
 		echo "<p><span class='profInfo'>About Me: </span>" . $profile['about_me'] . "</p>";
 		echo "</div>";
 
-		echo "<div class='col-xs-6 bio'>";
+		echo "<div class='col bio'>";
 		echo "<h1>Biography</h1>";
+		echo "<br />";
 		echo "<p>" . $profile['biography'] . "</p>";
 		echo "</div>";
 
@@ -45,7 +49,7 @@
 
 	?>
 
-	</h1>
+	</div>
 
 </body>
 </html>
