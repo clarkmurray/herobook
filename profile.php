@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-
-	<title><?php $profile['name']?></title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-	<link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-	<?php 
+<?php 
 
 	include('header.php');
 	include('database.php');
@@ -32,7 +22,20 @@
 
     $profile = getProfile($id);
 
+    $title = $profile['name'];
+
 	?>
+
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title><?php echo $title ?></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
 
 	<div class="container-fluid">
 
@@ -46,6 +49,7 @@
 		echo "<p><span class='profInfo'>Alias: </span>" . $profile['alias'] . "</p>";
 		echo "<p><span class='profInfo'>First Appearance: </span>" . $profile['first_appearance'] . "</p>";
 		echo "<p><span class='profInfo'>About Me: </span>" . $profile['about_me'] . "</p>";
+		echo "<p><span class='profInfo'>Attributes: </span></p>";
 		echo "<ul>";
 
 		foreach (getAbilities($id) as $ability) {
