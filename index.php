@@ -41,7 +41,7 @@
 
 		foreach (getHeroes() as $hero) {
 			echo "<tr>";
-			echo "<td><img height='100px' width='100px' src='" . $hero['image_url'] . "'></td>";
+			echo "<td><a href='./profile.php?id=" . $hero['id'] . "'><img height='100px' width='100px' src='" . $hero['image_url'] . "'></a></td>";
 			echo "<td class='align-middle'><a href='./profile.php?id=" . $hero['id'] . "'>" . $hero['name'] . "</td>";
 			echo "<td class='align-middle'>" . $hero['alias'] . "</td>";
 			echo "<td class='align-middle'>" . $hero['about_me'] . "</td>";

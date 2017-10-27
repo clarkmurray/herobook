@@ -12,7 +12,7 @@
 	echo "</div>";
 
 	echo "<div class='col siteName'>";
-		echo "<h1 class='text-center'>Bat-Net</h1>";
+		echo "<a href='index.php'><h1 class='text-center'>Bat-Net</h1></a>";
 	echo "</div>";
 
 	echo "<div class='col'>";

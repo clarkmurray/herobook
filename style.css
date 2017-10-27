@@ -37,3 +37,8 @@ table {
 	width: 100%;
 	padding: 20px;
 }
+
+.siteName a, .siteName a:visited, .siteName a:hover {
+	color: white;
+	text-decoration: none;
+}
