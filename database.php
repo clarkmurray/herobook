@@ -1,4 +1,6 @@
-<?php function getDb() {
+<?php 
+
+	function getDb() {
 
 		if (file_exists('.env')) {
 			require __DIR__ . '/vendor/autoload.php';
@@ -15,15 +17,17 @@
 		$db_name = substr($url['path'], 1);
 
 		$db = pg_connect(
-		"host=" . $db_host .
-		" port=" . $db_port .
-		" dbname=" . $db_name .
-		" user=" . $db_user .
-		" password=" . $db_pass
+			"host=" . $db_host .
+			" port=" . $db_port .
+			" dbname=" . $db_name .
+			" user=" . $db_user .
+			" password=" . $db_pass
 		);
 
 		return $db;
+	};
 
-	}
-
-?>
+	function dbQuery($sql) {
+		$request = pg_query(getDb(), $sql);
+		return pg_fetch_all($request);
+	};

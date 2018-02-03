@@ -1,27 +1,16 @@
 <?php 
 
-	include('database.php');
+	require('database.php');
 
 	$id = intval(htmlentities($_GET["id"]));
 
-	function getProfile($id) {
-      $sql = "select * from heroes where id=" . $id;
+    $abilities = dbQuery(
+    	"SELECT ability FROM abilities 
+		RIGHT JOIN hero_abilities ON abilities.id=hero_abilities.abilities_id
+		WHERE hero_id=" . $id
+	);
 
-      $request = pg_query(getDb(), $sql);
-      return pg_fetch_assoc($request);
-    }
-
-    function getAbilities($hero_id) {
-    	$sql = "SELECT ability FROM abilities 
-				RIGHT JOIN hero_abilities ON abilities.id=hero_abilities.abilities_id
-				WHERE hero_id=" . $hero_id;
-    	$request = pg_query(getDb(), $sql);
-      	return pg_fetch_all($request);
-    }
-
-    $profile = getProfile($id);
-
-    $title = $profile['name'];
+    $profile = dbQuery("SELECT * FROM heroes WHERE id=" . $id)[0];
 
 ?>
 
@@ -29,7 +18,7 @@
 <html>
 <head>
 
-	<title><?= $title ?></title>
+	<title><?= $profile["name"] ?></title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 	<link rel="stylesheet" href="style.css">
 </head>
@@ -61,7 +50,7 @@
 					</p>
 					<ul>
 
-						<?php foreach(getAbilities($id) as $ability) : ?>
+						<?php foreach($abilities as $ability) : ?>
 							<li><?=$ability['ability'] ?></li>
 						<?php endforeach; ?>
 

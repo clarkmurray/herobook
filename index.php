@@ -1,14 +1,9 @@
 <?php 
 
-		include('database.php');
+	require('database.php');
 
-		function getHeroes() {
-			$request = pg_query(getDb(), 
-				"SELECT id, name, alias, about_me, image_url FROM heroes;"
-			);
+	$heroes = "SELECT id, name, alias, about_me, image_url FROM heroes";
 
-			return pg_fetch_all($request);
-		}
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +28,7 @@
 				<th>About Me</th>
 			</tr>
 
-			<?php foreach (getHeroes() as $hero) : ?>
+			<?php foreach (dbQuery($heroes) as $hero) : ?>
 				<tr>
 					<td>
 						<?= "<a href='profile.php?id={$hero['id']}'>" ?>
@@ -55,5 +50,4 @@
 	</div>
 
 </body>
-
 </html>
