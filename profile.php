@@ -1,6 +1,5 @@
 <?php 
 
-	include('header.php');
 	include('database.php');
 
 	$id = intval(htmlentities($_GET["id"]));
@@ -36,42 +35,48 @@
 </head>
 <body>
 
+	<?php include('header.php') ?>
 
-	<div class="container-fluid">
+	<div class="container">
 
-	<?php 
+		<div class='row'>
+			<div class='col-5'>
+				<?= "<img height='400px' width='100%' src='{$profile['image_url']}'>" ?>
+				<div class='container profileBox'>
+					<h1><?= $profile['name'] ?></h1>
+					<p>
+						<span class='profInfo'>Alias: </span>
+						<?= $profile['alias'] ?>
+					</p>
+					<p>
+						<span class='profInfo'>First Appearance: </span>
+						<?= $profile['first_appearance'] ?>
+					</p>
+					<p>
+						<span class='profInfo'>About Me: </span>
+						<?= $profile['about_me'] ?>
+					</p>
+					<p>
+						<span class='profInfo'>Attributes: </span>
+					</p>
+					<ul>
 
-		echo "<div class='row'>";
+						<?php foreach(getAbilities($id) as $ability) : ?>
+							<li><?=$ability['ability'] ?></li>
+						<?php endforeach; ?>
 
-		echo "<div class='col-5'>";
-		echo "<img height='400px' width='100%' src='" . $profile['image_url'] . "'>";
-		echo "<div class='container profileBox'>";
-		echo "<h1>" . $profile['name'] . "</h1>";
-		echo "<p><span class='profInfo'>Alias: </span>" . $profile['alias'] . "</p>";
-		echo "<p><span class='profInfo'>First Appearance: </span>" . $profile['first_appearance'] . "</p>";
-		echo "<p><span class='profInfo'>About Me: </span>" . $profile['about_me'] . "</p>";
-		echo "<p><span class='profInfo'>Attributes: </span></p>";
-		echo "<ul>";
+					</ul>
+				</div>
+			</div>
+			<div class='col-7 bio'>
+				<div class='container bioBox'>
+					<h1 class='text-center'>Biography</h1>
+					<br />
+					<p><?= $profile['biography'] ?></p>
+				</div>
 
-		foreach (getAbilities($id) as $ability) {
-			echo "<li>" . $ability['ability'] . "</li>";
-		}
-
-		echo "</ul>";
-		echo "</div>";
-		echo "</div>";
-
-		echo "<div class='col-7 bio'>";
-		echo "<div class='container bioBox'>";
-		echo "<h1 class='text-center'>Biography</h1>";
-		echo "<br />";
-		echo "<p>" . $profile['biography'] . "</p>";
-		echo "</div>";
-
-		echo "</div>";
-		echo "</div>"; 
-
-	?>
+			</div>
+		</div>
 
 	</div>
 
