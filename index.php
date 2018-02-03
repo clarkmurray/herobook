@@ -1,3 +1,16 @@
+<?php 
+
+		include('database.php');
+
+		function getHeroes() {
+			$request = pg_query(getDb(), 
+				"SELECT id, name, alias, about_me, image_url FROM heroes;"
+			);
+
+			return pg_fetch_all($request);
+		}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,51 +20,39 @@
 </head>
 <body>
 
-	<?php 
-
-		include('database.php');
-
-		function getHeroes() {
-			$request = pg_query(getDb(), "
-				SELECT id, name, alias, about_me, image_url FROM heroes;
-
-			");
-
-			return pg_fetch_all($request);
-		}
-
-	?>
-
-
-
-
 	<?php include('header.php');?>
 
-	<div class="container-fluid">
+	<div class="container">
 
-	<table class="table table-hover">
-		<tr>
-			<th></th>
-			<th>Name</th>
-			<th>Alias</th>
-			<th>About Me</th>
-		</tr>
+		<table class="table table-hover">
 
-	<?php 
+			<tr>
+				<th></th>
+				<th>Name</th>
+				<th>Alias</th>
+				<th>About Me</th>
+			</tr>
 
-		foreach (getHeroes() as $hero) {
-			echo "<tr>";
-			echo "<td><a href='./profile.php?id=" . $hero['id'] . "'><img height='100px' width='100px' src='" . $hero['image_url'] . "'></a></td>";
-			echo "<td class='align-middle'><a href='./profile.php?id=" . $hero['id'] . "'>" . $hero['name'] . "</td>";
-			echo "<td class='align-middle'>" . $hero['alias'] . "</td>";
-			echo "<td class='align-middle'>" . $hero['about_me'] . "</td>";
-			echo "</tr>";
-		}
-	?>
+			<?php foreach (getHeroes() as $hero) : ?>
+				<tr>
+					<td>
+						<?= "<a href='profile.php?id={$hero['id']}'>" ?>
+							<?= "<img height='100px' width='100px' src='{$hero['image_url']}'>" ?>
+						</a>
+					</td>
+					<td class='align-middle'>
+						<?= "<a href='profile.php?id={$hero['id']}'>" ?>
+							<?= $hero['name'] ?>
+						</a>
+					</td>
+					<td class='align-middle'><?= $hero['alias'] ?></td>
+					<td class='align-middle'><?= $hero['about_me'] ?></td>
+				</tr>
+			<?php endforeach; ?>
 
-	</table>
+		</table>
 
-</div>
+	</div>
 
 </body>
 
